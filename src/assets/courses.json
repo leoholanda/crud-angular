@@ -1,4 +1,4 @@
 [
-  {"_id": "1", "name": "Angular", "category": "Frontend"},
-  {"_id": "2", "name": "Spring", "category": "Backend"}
+  {"_id": "1", "name": "Angular", "category": "front-end"},
+  {"_id": "2", "name": "Spring", "category": "back-end"}
 ]
