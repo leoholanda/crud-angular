@@ -9,10 +9,10 @@ import { Observable, delay, first, take, tap } from 'rxjs';
 export class CoursesService {
 
   private readonly API = 'api/courses';
-  private httpCliente = inject(HttpClient);
+  private httpClient = inject(HttpClient);
 
   list() {
-    return this.httpCliente.get<Course[]>(this.API)
+    return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
       delay(700),
@@ -20,6 +20,26 @@ export class CoursesService {
   }
 
   save(course: Partial<Course>) {
-    return this.httpCliente.post<Course>(this.API, course).pipe(first());
+    if(course._id) {
+      return this.update(course);
+    }
+    return this.create(course);
   }
+
+  loadById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`)
+  }
+
+  private create(course: Partial<Course>) {
+    return this.httpClient.post<Course>(this.API, course).pipe(first());
+  }
+
+  private update(course: Partial<Course>) {
+    return this.httpClient.put<Course>(`${this.API}/${course._id}`, course).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
+
 }

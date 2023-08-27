@@ -11,3 +11,24 @@ $custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $cust
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar {
+    background: #80cbc4;
+    color: white;
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.warn-snackbar {
+    background: rgb(234, 234, 117);
+    color: rgb(107, 107, 107);
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.error-snackbar {
+    background: rgb(243, 117, 117);
+    color: white ;
+    white-space: pre-wrap;
+    font-weight: bold;
+}

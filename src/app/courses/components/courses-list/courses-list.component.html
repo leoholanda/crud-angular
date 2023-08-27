@@ -23,13 +23,17 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let course" class=action-column>
-      <button mat-flat-button color="accent" aria-label="Editar curso">
+
+      <button mat-flat-button color="accent" aria-label="Editar curso"
+        (click)="onEdit(course)">
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-flat-button color="warn" aria-label="Remover curso" style="margin-left: 3px;">
+      <button mat-flat-button color="warn" aria-label="Remover curso" style="margin-left: 3px;"
+        (click)="onDelete(course)">
         <mat-icon>delete</mat-icon>
       </button>
+
     </mat-cell>
   </ng-container>
 
