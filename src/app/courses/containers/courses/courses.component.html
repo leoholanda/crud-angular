@@ -1,9 +1,9 @@
 <mat-card>
-  <mat-toolbar class="toolbar">
+  <mat-toolbar class="toolbar mat-elevation-z8">
     Cursos Disponiveis
   </mat-toolbar>
 
-  <div class="column-flex mat-elevation-z8">
+  <div class="column-flex mat-elevation-z2">
     <app-courses-list
       *ngIf="courses$ | async as courses; else loading"
       [courses]="courses" 
