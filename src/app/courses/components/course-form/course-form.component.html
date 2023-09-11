@@ -5,7 +5,7 @@
     <form [formGroup]="form" class="min-width">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Nome</mat-label>
-        <input matInput placeholder="Nome" formControlName="name" #name>
+        <input matInput formControlName="name" #name>
         <mat-hint align="end">{{name.value.length || 0}}/100</mat-hint>
         <mat-error *ngIf="form.get('name')?.invalid">{{ getErrorMessage("name") }}</mat-error>
       </mat-form-field>
@@ -22,9 +22,9 @@
     </form>
   </mat-card-content>
 
-  <mat-card-actions>
+  <mat-card-actions class="actions-center">
     <button mat-raised-button color="accent" (click)="onSubmit()">Salvar</button>
-    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button (click)="onCancel()" class="btn-space">Cancelar</button>
   </mat-card-actions>
 
 </mat-card>

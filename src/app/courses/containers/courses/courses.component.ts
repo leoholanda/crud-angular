@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../../model/course';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 
@@ -63,7 +63,7 @@ export class CoursesComponent implements OnInit {
         .subscribe({
           next: () => {
             this.refresh();
-            this.snackBar.open('Curso removido com sucesso', '', { 
+            this.snackBar.open('Curso removido com sucesso', '', {
               duration: 5000,
               verticalPosition: 'top',
               horizontalPosition: 'center',
@@ -85,7 +85,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onErrorSnackBar(errorMessage: string) {
-    this.snackBar.open(errorMessage, '', { 
+    this.snackBar.open(errorMessage, '', {
       duration: 8000,
       verticalPosition: 'top',
       panelClass: ['error-snackbar']

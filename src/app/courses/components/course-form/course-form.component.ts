@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { CoursesService } from '../../services/courses.service';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../../model/course';
@@ -15,8 +15,8 @@ export class CourseFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     _id: [''],
-    name: ['', [Validators.required, 
-      Validators.minLength(5), 
+    name: ['', [Validators.required,
+      Validators.minLength(5),
       Validators.maxLength(100)]],
     category: ['', [Validators.required]],
   });
@@ -62,14 +62,14 @@ export class CourseFormComponent implements OnInit {
   }
 
   private onSuccess() {
-    this.snackBar.open('Curso salvo com sucesso', '', { 
+    this.snackBar.open('Curso salvo com sucesso', '', {
       duration: 5000,
       panelClass: ['success-snackbar']
     });
   }
 
   private onError() {
-    this.snackBar.open('Erro ao salvar curso', '', { 
+    this.snackBar.open('Erro ao salvar curso', '', {
       duration: 5000,
       panelClass: ['error-snackbar']
     });
