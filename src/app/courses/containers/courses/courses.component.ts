@@ -38,7 +38,7 @@ export class CoursesComponent implements OnInit {
     this.courses$ = this.courseService.list()
       .pipe(
         catchError(error => {
-          this.onErrorSnackBar('Erro ao carregar cursos.')
+          this.openFailureSnackBar('Erro ao carregar cursos.')
           return of([])
         })
       );
@@ -71,24 +71,26 @@ export class CoursesComponent implements OnInit {
             });
           },
           error: () => {
-            this.onError('Erro ao tentar remover curso')
+            this.openFailureSnackBar('Erro ao tentar remover curso')
           }
         });
       }
     });
   }
 
-  onError(errorMessage: string) {
-    this.dialog.open(ErrorDialogComponent, {
-      data: errorMessage
-    });
-  }
-
-  onErrorSnackBar(errorMessage: string) {
+  openFailureSnackBar(errorMessage: string) {
     this.snackBar.open(errorMessage, '', {
       duration: 8000,
       verticalPosition: 'top',
-      panelClass: ['error-snackbar']
+      panelClass: ['app-notification-error']
+    });
+  }
+
+  openSuccessSnackBar(errorMessage: string) {
+    this.snackBar.open(errorMessage, '', {
+      duration: 8000,
+      verticalPosition: 'top',
+      panelClass: ['app-notification-success']
     });
   }
 

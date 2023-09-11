@@ -27,3 +27,22 @@ mat-card {
 .icon {
   margin-left: 8px;
 }
+
+.success-snackbar {
+  background-color: #5f9ce7 !important;
+  color: white !important;
+  white-space: pre-wrap;
+  font-weight: bold;
+}
+
+.warn-snackbar {
+  background: rgb(234, 234, 117) !important;
+  color: rgb(107, 107, 107) !important;
+  font-weight: bold;
+}
+
+.error-snackbar {
+  background: rgb(243, 117, 117);
+  color: white ;
+  font-weight: bold;
+}

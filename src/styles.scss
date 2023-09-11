@@ -13,24 +13,37 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .success-snackbar {
-    background: #80cbc4;
+    background-color: #2196F3;
     color: white;
-    white-space: pre-wrap;
     font-weight: bold;
 }
 
 .warn-snackbar {
-    background: rgb(234, 234, 117);
-    color: rgb(107, 107, 107);
-    white-space: pre-wrap;
+    background: rgb(234, 234, 117) !important;
+    color: rgb(107, 107, 107) !important;
     font-weight: bold;
 }
 
-.error-snackbar {
-    background: rgb(243, 117, 117);
-    color: white ;
-    white-space: pre-wrap;
-    font-weight: bold;
+.red-snackbar {
+    background: #F44336;
+}
+
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+
+  &.app-notification-error {
+    --mdc-snackbar-container-color: #f7756c;
+  }
+
+  &.app-notification-success {
+    --mdc-snackbar-container-color: #2196F3;
+  }
+
+  &.app-notification-warn {
+    --mdc-snackbar-container-color: rgb(234, 234, 117);
+    --mdc-snackbar-supporting-text-color: rgb(107, 107, 107) !important;
+  }
 }
 
 mat-error {

@@ -47,11 +47,11 @@ export class CourseFormComponent implements OnInit {
     this.service.save(this.form.value)
     .subscribe({
       next: (res: any) => {
-        this.onSuccess();
+        this.openSuccessSnackBar('Curso salvo com sucesso!');
         console.log(res);
       },
       error: (err: any) => {
-        this.onError();
+        this.openFailureSnackBar('Erro ao salvar curso');
         console.log(err);
       }
     });
@@ -59,20 +59,6 @@ export class CourseFormComponent implements OnInit {
 
   onCancel() {
     this.location.back();
-  }
-
-  private onSuccess() {
-    this.snackBar.open('Curso salvo com sucesso', '', {
-      duration: 5000,
-      panelClass: ['success-snackbar']
-    });
-  }
-
-  private onError() {
-    this.snackBar.open('Erro ao salvar curso', '', {
-      duration: 5000,
-      panelClass: ['error-snackbar']
-    });
   }
 
   getErrorMessage(fieldName: string) {
@@ -93,6 +79,22 @@ export class CourseFormComponent implements OnInit {
     }
 
     return 'Campo inválido';
+  }
+
+  openFailureSnackBar(errorMessage: string) {
+    this.snackBar.open(errorMessage, '', {
+      duration: 8000,
+      verticalPosition: 'bottom',
+      panelClass: ['app-notification-error']
+    });
+  }
+
+  openSuccessSnackBar(errorMessage: string) {
+    this.snackBar.open(errorMessage, '', {
+      duration: 8000,
+      verticalPosition: 'bottom',
+      panelClass: ['app-notification-success']
+    });
   }
 
 }
