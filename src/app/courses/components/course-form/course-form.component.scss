@@ -4,6 +4,11 @@ mat-card {
   text-align: center;
 }
 
+mat-form-field {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
 .full-width {
   width: 100%;
 }
@@ -19,4 +24,8 @@ mat-card {
 
 .actions-center {
   justify-content: center;
+}
+
+.form-array-error {
+  text-align: left;
 }
